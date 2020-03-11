@@ -1,14 +1,5 @@
 import math
-def main():
-    MAX = 1000000
-    amt = 0
-    for i in range(2, MAX):
-        if i > 10 and any([int(x) % 2 == 0 for x in str(i)]):
-            continue
 
-        if all([test_primes(x) for x in circleNum(i)]):
-            amt += 1
-    print(amt)
 
 def test_primes(num):
     root = int(math.sqrt(num))
@@ -27,7 +18,12 @@ def circleNum(num):
         numbers.append(int("".join(currNbr)))
     return numbers
 
+MAX = 1000000
+amt = 0
+for i in range(2, MAX):
+    if i > 10 and any([int(x) % 2 == 0 for x in str(i)]):
+        continue
 
-
-if __name__ == "__main__":
-    main()
+    if all([test_primes(x) for x in circleNum(i)]):
+        amt += 1
+print(amt)
